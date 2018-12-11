@@ -22,8 +22,8 @@ public class ui_script : MonoBehaviour {
 
 	IEnumerator runGame()
     {
-		yield return new WaitForSeconds(3); 
-		SceneManager.LoadScene("niv1");
+		yield return new WaitForSeconds(2); 
+		SceneManager.LoadScene("loadlvl1");
 	 }
 	public void QuitGame() 
 	{

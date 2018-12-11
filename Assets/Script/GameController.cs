@@ -28,6 +28,10 @@ public class GameController : MonoBehaviour
     private int waveUpdate;
     Scene m_Scene;
 
+	public Texture2D fadeTexture;
+    private float alpha = 1;
+
+
     void Start()
     {
         gameOver = false;
@@ -50,6 +54,9 @@ public class GameController : MonoBehaviour
 
     void Update()
     {
+        if(alpha>0)
+            alpha-=0.07f;
+
         if (restart)
         {
             if (Input.GetKeyDown(KeyCode.R))
@@ -165,4 +172,10 @@ public class GameController : MonoBehaviour
     {
         scoreText.text = "Wave: " + wave;
     }
+
+    void OnGUI()
+	{
+	GUI.color = new Color(1,1,1, alpha);
+	GUI.DrawTexture(new Rect(0,0,Screen.width,Screen.height), fadeTexture);
+	}
 }
