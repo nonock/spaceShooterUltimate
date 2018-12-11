@@ -46,7 +46,7 @@ public class GameController : MonoBehaviour
         waveUpdate = 0;
         maxScore = 1000;
         hazardCount = 10;
-        spawnWait = 1.0f;
+        spawnWait = 0.5f;
         UpdateScore();
 
         StartCoroutine(SpawnWaves());
@@ -117,7 +117,6 @@ public class GameController : MonoBehaviour
             {
                 waves = 0;
                 hazardCount = hazardCount + 3;
-                spawnWait = spawnWait - 0.2f;
             }
             if(m_Scene.name == "niv1")
             {

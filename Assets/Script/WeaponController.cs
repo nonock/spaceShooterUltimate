@@ -15,7 +15,12 @@ public class WeaponController : MonoBehaviour
 
 	void Fire ()
 	{
-		Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
+        Vector3 pos = new Vector3(shotSpawn.position.x, shotSpawn.position.y, shotSpawn.position.z);
+
+        pos.y = 0;
+
+        print(shotSpawn.position);
+		Instantiate(shot, pos, shotSpawn.rotation);
 		GetComponent<AudioSource>().Play();
 	}
 }
