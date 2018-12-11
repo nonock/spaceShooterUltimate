@@ -16,7 +16,10 @@ public class PlayerController : MonoBehaviour
 
 	public GameObject shot;
 	public Transform shotSpawn;
-	public float fireRate;
+    public Transform shotSpawn1;
+    public Transform shotSpawn2;
+    public Transform shotSpawn3;
+    public float fireRate;
 	 
 	private float nextFire;
 
@@ -35,7 +38,38 @@ public class PlayerController : MonoBehaviour
                 GetComponent<AudioSource>().Play();
             }
         }
-	}
+        print(m_Scene.name);
+        if(m_Scene.name == "niv3")
+        {
+            if (Input.GetKeyDown(KeyCode.Space) && Time.time > nextFire)
+            {
+                nextFire = Time.time + fireRate;
+                Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
+                Instantiate(shot, shotSpawn1.position, shotSpawn1.rotation);
+                GetComponent<AudioSource>().Play();
+            }
+        }
+        if (m_Scene.name == "niv4")
+        {
+            if (Input.GetKeyDown(KeyCode.Space) && Time.time > nextFire)
+            {
+                nextFire = Time.time + fireRate;
+                Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
+                Instantiate(shot, shotSpawn1.position, shotSpawn1.rotation);
+                Instantiate(shot, shotSpawn2.position, shotSpawn2.rotation);
+                GetComponent<AudioSource>().Play();
+            }
+        }
+        if (m_Scene.name == "niv5")
+        {
+            nextFire = Time.time + fireRate;
+            Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
+            Instantiate(shot, shotSpawn1.position, shotSpawn1.rotation);
+            Instantiate(shot, shotSpawn2.position, shotSpawn2.rotation);
+            Instantiate(shot, shotSpawn3.position, shotSpawn3.rotation);
+            GetComponent<AudioSource>().Play();
+        }
+    }
 
 	void FixedUpdate ()
 	{

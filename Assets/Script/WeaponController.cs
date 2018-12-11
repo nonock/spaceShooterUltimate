@@ -19,7 +19,7 @@ public class WeaponController : MonoBehaviour
 
         pos.y = 0;
 
-        print(shotSpawn.position);
+        //print(shotSpawn.position);
 		Instantiate(shot, pos, shotSpawn.rotation);
 		GetComponent<AudioSource>().Play();
 	}
