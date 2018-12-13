@@ -50,10 +50,19 @@ public class GameController : MonoBehaviour
         hazardCount = 10;
         spawnWait = 0.5f;
 
-        StartCoroutine(SpawnWaves());
-        //SpawnSpecialWave1();
-        //SpawnSpecialWave2();
-        //SpawnSpecialWave3();
+        m_Scene = SceneManager.GetActiveScene();
+
+        if(m_Scene.name == "niv5")
+        {
+            SpawnBoss();
+        }
+        else
+        {
+            StartCoroutine(SpawnWaves());
+            //SpawnSpecialWave1();
+            //SpawnSpecialWave2();
+            //SpawnSpecialWave3();
+        }
     }
 
     void Update()
@@ -77,12 +86,24 @@ public class GameController : MonoBehaviour
         {
 
         }
+    }
 
+    void SpawnBoss()
+    {
+        GameObject Boss = hazards[0];
+
+        Vector3 spawnPosition = new Vector3(0, spawnValues.y, 12);
+
+        Vector3 rotationVector = new Vector3(90, 180, 0);
+
+        Quaternion spawnRotation = Quaternion.Euler(rotationVector);
+
+        Instantiate(Boss, spawnPosition, spawnRotation);
     }
 
     void SpawnSpecialWave1()
     {
-        GameObject hazard = hazards[1];
+        GameObject hazard = hazards[0];
         for(float i = -spawnValues.x; i < spawnValues.x + 1; i++)
         {
             Vector3 spawnPosition = new Vector3(i, spawnValues.y, spawnValues.z);
