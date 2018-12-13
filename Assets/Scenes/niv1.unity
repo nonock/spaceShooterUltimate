@@ -1084,10 +1084,10 @@ GameObject:
   - component: {fileID: 1687857891}
   m_Layer: 0
   m_Name: Background
-  m_TagString: Untagged
+  m_TagString: niv1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1687857890
 Transform:
@@ -1170,10 +1170,10 @@ GameObject:
   - component: {fileID: 1751715180}
   m_Layer: 0
   m_Name: Background
-  m_TagString: Untagged
+  m_TagString: niv1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!23 &1751715180
 MeshRenderer:
@@ -1354,7 +1354,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 7b04c59dd84f14039b601e1abbe7b884, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 69d2be93b6405a14d9d525a1de2a5e63, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.5
   m_Pitch: 1
