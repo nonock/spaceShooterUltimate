@@ -1471,4 +1471,5 @@ MonoBehaviour:
   restartText: {fileID: 1118447433}
   gameOverText: {fileID: 1018459434}
   victoryText: {fileID: 972653936}
+  level2load: loadvictory
   fadeTexture: {fileID: 2800000, guid: 2c24ec752c5c6b94cbab78547f4b80b0, type: 3}

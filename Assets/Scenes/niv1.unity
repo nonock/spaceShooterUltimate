@@ -303,6 +303,9 @@ MonoBehaviour:
     zMax: 12
   shot: {fileID: 100000, guid: 11e27c26ac87b40f0a62ec40d7261989, type: 2}
   shotSpawn: {fileID: 535871342}
+  shotSpawn1: {fileID: 0}
+  shotSpawn2: {fileID: 0}
+  shotSpawn3: {fileID: 0}
   fireRate: 1
 --- !u!4 &535871342 stripped
 Transform:
@@ -1459,4 +1462,5 @@ MonoBehaviour:
   restartText: {fileID: 1118447433}
   gameOverText: {fileID: 1018459434}
   victoryText: {fileID: 972653936}
+  level2load: loadlvl2
   fadeTexture: {fileID: 2800000, guid: 2c24ec752c5c6b94cbab78547f4b80b0, type: 3}

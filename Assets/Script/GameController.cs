@@ -16,6 +16,7 @@ public class GameController : MonoBehaviour
     public Text restartText;
     public Text gameOverText;
     public Text victoryText;
+	public string level2load;
 
     private bool gameOver;
     private bool restart;
@@ -30,6 +31,7 @@ public class GameController : MonoBehaviour
 
     public Texture2D fadeTexture;
     private float alpha = 1;
+	bool tr = false;
 
 
     void Start()
@@ -48,16 +50,21 @@ public class GameController : MonoBehaviour
         hazardCount = 10;
         spawnWait = 0.5f;
 
-        //StartCoroutine(SpawnWaves());
+        StartCoroutine(SpawnWaves());
         //SpawnSpecialWave1();
         //SpawnSpecialWave2();
-        SpawnSpecialWave3();
+        //SpawnSpecialWave3();
     }
 
     void Update()
     {
-        if (alpha > 0)
-            alpha -= 0.07f;
+        if(tr){
+			alpha+= 0.07F;
+		}
+		else {
+			if(alpha > 0)
+				alpha-= 0.07F;
+		}
 
         if (restart)
         {
@@ -197,7 +204,25 @@ public class GameController : MonoBehaviour
     {
         victoryText.text = "Victory !!!";
         victory = true;
+        StartCoroutine(transition());
+
     }
+
+	IEnumerator transition()
+    {
+		yield return new WaitForSeconds(2); 
+		tr = true;
+		StartCoroutine(loadLevel());
+
+	 }
+
+	IEnumerator loadLevel()
+    {
+		yield return new WaitForSeconds(1); 
+		SceneManager.LoadScene(level2load);
+
+	}
+
 
     public void UpdateWave()
     {
