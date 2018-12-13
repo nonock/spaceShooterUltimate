@@ -28,7 +28,7 @@ public class GameController : MonoBehaviour
     private int waveUpdate;
     Scene m_Scene;
 
-	public Texture2D fadeTexture;
+    public Texture2D fadeTexture;
     private float alpha = 1;
 
 
@@ -47,15 +47,17 @@ public class GameController : MonoBehaviour
         maxScore = 1000;
         hazardCount = 10;
         spawnWait = 0.5f;
-        UpdateScore();
 
-        StartCoroutine(SpawnWaves());
+        //StartCoroutine(SpawnWaves());
+        //SpawnSpecialWave1();
+        //SpawnSpecialWave2();
+        SpawnSpecialWave3();
     }
 
     void Update()
     {
-        if(alpha>0)
-            alpha-=0.07f;
+        if (alpha > 0)
+            alpha -= 0.07f;
 
         if (restart)
         {
@@ -64,6 +66,70 @@ public class GameController : MonoBehaviour
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             }
         }
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+
+        }
+
+    }
+
+    void SpawnSpecialWave1()
+    {
+        GameObject hazard = hazards[1];
+        for(float i = -spawnValues.x; i < spawnValues.x + 1; i++)
+        {
+            Vector3 spawnPosition = new Vector3(i, spawnValues.y, spawnValues.z);
+
+            Vector3 rotationVector = new Vector3(90, 0, 0);
+
+            Quaternion spawnRotation = Quaternion.Euler(rotationVector);
+
+            Instantiate(hazard, spawnPosition, spawnRotation);
+        }
+    }
+
+    void SpawnSpecialWave2()
+    {
+        GameObject hazard = hazards[1];
+        
+        Vector3 rotationVector = new Vector3(90, 0, 0);
+
+        Quaternion spawnRotation = Quaternion.Euler(rotationVector);
+
+        for (float a = 0; a < spawnValues.x + 1; a++)
+        {
+            Vector3 spawnPosition2 = new Vector3(0 + a, spawnValues.y, spawnValues.z + a);
+            Vector3 spawnPosition3 = new Vector3(0 - a, spawnValues.y, spawnValues.z + a);
+           
+            Instantiate(hazard, spawnPosition2, spawnRotation);
+            Instantiate(hazard, spawnPosition3, spawnRotation);
+        }
+    }
+
+    void SpawnSpecialWave3()
+    {
+        GameObject hazard = hazards[1];
+
+        Vector3 rotationVector = new Vector3(90, 0, 0);
+
+        Quaternion spawnRotation = Quaternion.Euler(rotationVector);
+        
+        for (float a = 0; a < (spawnValues.x/2) + 1; a++)
+        {
+            Vector3 spawnPosition2 = new Vector3(0 + a, spawnValues.y, spawnValues.z + a);
+            Vector3 spawnPosition3 = new Vector3(0 - a, spawnValues.y, spawnValues.z + a);
+
+            Instantiate(hazard, spawnPosition2, spawnRotation);
+            Instantiate(hazard, spawnPosition3, spawnRotation);
+        }
+        for (float a = (spawnValues.x/2) + 1; a > 0; a--)
+        {
+            Vector3 spawnPosition2 = new Vector3(a, spawnValues.y, spawnValues.z - a);
+            Vector3 spawnPosition3 = new Vector3(-a, spawnValues.y, spawnValues.z - a);
+
+            Instantiate(hazard, spawnPosition2, spawnRotation);
+            Instantiate(hazard, spawnPosition3, spawnRotation);
+        }
     }
 
     IEnumerator SpawnWaves()
@@ -71,15 +137,15 @@ public class GameController : MonoBehaviour
         yield return new WaitForSeconds(startWait);
         while (true)
         {
-            for(int i = 0; i < hazardCount; i++)
+            for (int i = 0; i < hazardCount; i++)
             {
                 GameObject hazard = hazards[Random.Range(0, hazards.Length)];
                 Vector3 spawnPosition = new Vector3(Random.Range(-spawnValues.x, spawnValues.x), spawnValues.y, spawnValues.z);
-                
+
                 Vector3 rotationVector = new Vector3(90, 0, 0);
 
                 Quaternion spawnRotation = Quaternion.Euler(rotationVector);
-                
+
                 Instantiate(hazard, spawnPosition, spawnRotation);
 
                 if (gameOver)
@@ -113,36 +179,14 @@ public class GameController : MonoBehaviour
             m_Scene = SceneManager.GetActiveScene();
 
             waves = waves + 1;
-            if(waves > waveUpdate)
+            if (waves > waveUpdate)
             {
                 waves = 0;
                 hazardCount = hazardCount + 3;
             }
-            if(m_Scene.name == "niv1")
-            {
-                UpdateWave();
-            }
+            UpdateWave();
         }
     }
-
-    public void AddScore(int newScoreValue)
-    {
-        score += newScoreValue;
-        if(score > maxScore)
-        {
-            Victory();
-        }
-        else
-        {
-            UpdateScore();
-        }
-    }
-
-    void UpdateScore()
-    {
-        scoreText.text = "Score: " + score;
-    }
-
     public void GameOver()
     {
         gameOverText.text = "Game Over!";
@@ -173,8 +217,8 @@ public class GameController : MonoBehaviour
     }
 
     void OnGUI()
-	{
-	GUI.color = new Color(1,1,1, alpha);
-	GUI.DrawTexture(new Rect(0,0,Screen.width,Screen.height), fadeTexture);
-	}
+    {
+        GUI.color = new Color(1, 1, 1, alpha);
+        GUI.DrawTexture(new Rect(0, 0, Screen.width, Screen.height), fadeTexture);
+    }
 }

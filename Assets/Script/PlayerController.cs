@@ -29,7 +29,7 @@ public class PlayerController : MonoBehaviour
     void Update ()
 	{
         m_Scene = SceneManager.GetActiveScene();
-        if(m_Scene.name != "niv1")
+        if(m_Scene.name == "niv2")
         {
             if (Input.GetKeyDown(KeyCode.Space) && Time.time > nextFire)
             {
@@ -38,7 +38,6 @@ public class PlayerController : MonoBehaviour
                 GetComponent<AudioSource>().Play();
             }
         }
-        print(m_Scene.name);
         if(m_Scene.name == "niv3")
         {
             if (Input.GetKeyDown(KeyCode.Space) && Time.time > nextFire)
