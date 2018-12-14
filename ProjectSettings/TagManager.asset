@@ -12,6 +12,7 @@ TagManager:
   - niv3
   - niv4
   - GameControllerBoard
+  - Bonus
   layers:
   - Default
   - TransparentFX

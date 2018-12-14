@@ -27,8 +27,19 @@ public class WeaponController : MonoBehaviour
 	{
         m_Scene = SceneManager.GetActiveScene();
 
+        if(m_Scene.name == "niv3")
+        {
+            fireRate = 1;
+        }
+        else if(m_Scene.name == "niv4")
+        {
+            fireRate = 0.7f;
+        }
+
         if (m_Scene.name == "niv5")
         {
+            fireRate = 0.5f;
+
             InvokeRepeating("FireBoss", delay, fireRate);
 
             InvokeRepeating("LaserBoss", delay*3, fireLaserRate);
@@ -42,11 +53,14 @@ public class WeaponController : MonoBehaviour
 	void Fire ()
 	{
         Vector3 pos = new Vector3(shotSpawn.position.x, shotSpawn.position.y, shotSpawn.position.z);
+        Vector3 pos1 = new Vector3(shotSpawn1.position.x, shotSpawn1.position.y, shotSpawn1.position.z);
 
         pos.y = 0;
+        pos1.y = 0;
 
         //print(shotSpawn.position);
 		Instantiate(shot, pos, shotSpawn.rotation);
+        Instantiate(shot, pos1, shotSpawn1.rotation);
 		GetComponent<AudioSource>().Play();
 	}
 

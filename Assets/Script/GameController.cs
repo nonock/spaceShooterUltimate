@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class GameController : MonoBehaviour
 {
     public GameObject[] hazards;
+    public GameObject star;
     public Vector3 spawnValues;
     private int hazardCount;
     private float spawnWait;
@@ -16,7 +17,7 @@ public class GameController : MonoBehaviour
     public Text restartText;
     public Text gameOverText;
     public Text victoryText;
-	public string level2load;
+    public string level2load;
 
     private bool gameOver;
     private bool restart;
@@ -31,7 +32,7 @@ public class GameController : MonoBehaviour
 
     public Texture2D fadeTexture;
     private float alpha = 1;
-	bool tr = false;
+    bool tr = false;
 
 
     void Start()
@@ -47,12 +48,12 @@ public class GameController : MonoBehaviour
         wave = 0;
         waveUpdate = 0;
         maxScore = 1000;
-        hazardCount = 10;
+        hazardCount = 20;
         spawnWait = 0.5f;
 
         m_Scene = SceneManager.GetActiveScene();
 
-        if(m_Scene.name == "niv5")
+        if (m_Scene.name == "niv5")
         {
             SpawnBoss();
         }
@@ -67,13 +68,15 @@ public class GameController : MonoBehaviour
 
     void Update()
     {
-        if(tr){
-			alpha+= 0.07F;
-		}
-		else {
-			if(alpha > 0)
-				alpha-= 0.07F;
-		}
+        if (tr)
+        {
+            alpha += 0.07F;
+        }
+        else
+        {
+            if (alpha > 0)
+                alpha -= 0.07F;
+        }
 
         if (restart)
         {
@@ -85,6 +88,12 @@ public class GameController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
 
+        }
+
+        if (gameOver)
+        {
+            restartText.text = "Press 'R' for Restart";
+            restart = true;
         }
     }
 
@@ -104,7 +113,7 @@ public class GameController : MonoBehaviour
     void SpawnSpecialWave1()
     {
         GameObject hazard = hazards[0];
-        for(float i = -spawnValues.x; i < spawnValues.x + 1; i++)
+        for (float i = -spawnValues.x; i < spawnValues.x + 1; i++)
         {
             Vector3 spawnPosition = new Vector3(i, spawnValues.y, spawnValues.z);
 
@@ -118,8 +127,8 @@ public class GameController : MonoBehaviour
 
     void SpawnSpecialWave2()
     {
-        GameObject hazard = hazards[1];
-        
+        GameObject hazard = hazards[0];
+
         Vector3 rotationVector = new Vector3(90, 0, 0);
 
         Quaternion spawnRotation = Quaternion.Euler(rotationVector);
@@ -128,7 +137,7 @@ public class GameController : MonoBehaviour
         {
             Vector3 spawnPosition2 = new Vector3(0 + a, spawnValues.y, spawnValues.z + a);
             Vector3 spawnPosition3 = new Vector3(0 - a, spawnValues.y, spawnValues.z + a);
-           
+
             Instantiate(hazard, spawnPosition2, spawnRotation);
             Instantiate(hazard, spawnPosition3, spawnRotation);
         }
@@ -136,13 +145,13 @@ public class GameController : MonoBehaviour
 
     void SpawnSpecialWave3()
     {
-        GameObject hazard = hazards[1];
+        GameObject hazard = hazards[0];
 
         Vector3 rotationVector = new Vector3(90, 0, 0);
 
         Quaternion spawnRotation = Quaternion.Euler(rotationVector);
-        
-        for (float a = 0; a < (spawnValues.x/2) + 1; a++)
+
+        for (float a = 0; a < (spawnValues.x / 2) + 1; a++)
         {
             Vector3 spawnPosition2 = new Vector3(0 + a, spawnValues.y, spawnValues.z + a);
             Vector3 spawnPosition3 = new Vector3(0 - a, spawnValues.y, spawnValues.z + a);
@@ -150,7 +159,7 @@ public class GameController : MonoBehaviour
             Instantiate(hazard, spawnPosition2, spawnRotation);
             Instantiate(hazard, spawnPosition3, spawnRotation);
         }
-        for (float a = (spawnValues.x/2) + 1; a > 0; a--)
+        for (float a = (spawnValues.x / 2) + 1; a > 0; a--)
         {
             Vector3 spawnPosition2 = new Vector3(a, spawnValues.y, spawnValues.z - a);
             Vector3 spawnPosition3 = new Vector3(-a, spawnValues.y, spawnValues.z - a);
@@ -165,31 +174,96 @@ public class GameController : MonoBehaviour
         yield return new WaitForSeconds(startWait);
         while (true)
         {
-            for (int i = 0; i < hazardCount; i++)
+            m_Scene = SceneManager.GetActiveScene();
+            if (m_Scene.name == "niv1")
             {
-                GameObject hazard = hazards[Random.Range(0, hazards.Length)];
-                Vector3 spawnPosition = new Vector3(Random.Range(-spawnValues.x, spawnValues.x), spawnValues.y, spawnValues.z);
-
-                Vector3 rotationVector = new Vector3(90, 0, 0);
-
-                Quaternion spawnRotation = Quaternion.Euler(rotationVector);
-
-                Instantiate(hazard, spawnPosition, spawnRotation);
-
-                if (gameOver)
+                for (int i = 0; i < hazardCount; i++)
                 {
-                    restartText.text = "Press 'R' for Restart";
-                    restart = true;
-                    break;
-                }
+                    int rng2 = Random.Range(0, 20);
 
-                if (victory)
-                {
-                    break;
-                }
+                    GameObject hazard = hazards[Random.Range(0, hazards.Length)];
+                    Vector3 spawnPosition = new Vector3(Random.Range(-spawnValues.x, spawnValues.x), spawnValues.y, spawnValues.z);
 
-                yield return new WaitForSeconds(spawnWait);
+                    Vector3 rotationVector = new Vector3(90, 180, 0);
+
+                    Quaternion spawnRotation = Quaternion.Euler(rotationVector);
+
+                    Instantiate(hazard, spawnPosition, spawnRotation);
+
+                    if (gameOver)
+                    {
+                        restartText.text = "Press 'R' for Restart";
+                        restart = true;
+                        break;
+                    }
+
+                    if (victory)
+                    {
+                        break;
+                    }
+
+                    yield return new WaitForSeconds(spawnWait);
+                }
             }
+            else
+            {
+                for (int i = 0; i < hazardCount; i++)
+                {
+
+                    int rng = Random.Range(0, 10);
+                    if (rng == 1)
+                    {
+                        SpawnSpecialWave1();
+                    }
+                    else if (rng == 3)
+                    {
+                        SpawnSpecialWave2();
+                    }
+                    else if (rng == 6)
+                    {
+                        SpawnSpecialWave3();
+                    }
+                    else
+                    {
+                        int rng2 = Random.Range(0, 20);
+
+                        if (rng2 == 3)
+                        {
+                            Vector3 spawnPosition1 = new Vector3(Random.Range(-spawnValues.x, spawnValues.x), spawnValues.y, spawnValues.z);
+
+                            Vector3 rotationVector1 = new Vector3(90, 180, 0);
+
+                            Quaternion spawnRotation1 = Quaternion.Euler(rotationVector1);
+
+                            Instantiate(star, spawnPosition1, spawnRotation1);
+                        }
+
+                        GameObject hazard = hazards[Random.Range(0, hazards.Length)];
+                        Vector3 spawnPosition = new Vector3(Random.Range(-spawnValues.x, spawnValues.x), spawnValues.y, spawnValues.z);
+
+                        Vector3 rotationVector = new Vector3(90, 180, 0);
+
+                        Quaternion spawnRotation = Quaternion.Euler(rotationVector);
+
+                        Instantiate(hazard, spawnPosition, spawnRotation);
+                    }
+
+                    if (gameOver)
+                    {
+                        restartText.text = "Press 'R' for Restart";
+                        restart = true;
+                        break;
+                    }
+
+                    if (victory)
+                    {
+                        break;
+                    }
+
+                    yield return new WaitForSeconds(spawnWait);
+                }
+            }
+
             yield return new WaitForSeconds(waveWait);
 
             if (gameOver)
@@ -203,8 +277,6 @@ public class GameController : MonoBehaviour
             {
                 break;
             }
-
-            m_Scene = SceneManager.GetActiveScene();
 
             waves = waves + 1;
             if (waves > waveUpdate)
@@ -229,20 +301,20 @@ public class GameController : MonoBehaviour
 
     }
 
-	IEnumerator transition()
+    IEnumerator transition()
     {
-		yield return new WaitForSeconds(2); 
-		tr = true;
-		StartCoroutine(loadLevel());
+        yield return new WaitForSeconds(2);
+        tr = true;
+        StartCoroutine(loadLevel());
 
-	 }
+    }
 
-	IEnumerator loadLevel()
+    IEnumerator loadLevel()
     {
-		yield return new WaitForSeconds(1); 
-		SceneManager.LoadScene(level2load);
+        yield return new WaitForSeconds(1);
+        SceneManager.LoadScene(level2load);
 
-	}
+    }
 
 
     public void UpdateWave()
@@ -261,6 +333,7 @@ public class GameController : MonoBehaviour
     {
         scoreText.text = "Wave: " + wave;
     }
+
 
     void OnGUI()
     {

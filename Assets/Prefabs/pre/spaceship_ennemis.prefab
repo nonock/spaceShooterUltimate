@@ -101,7 +101,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 1be4472894949437694aead55c6da60f, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.056
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -197,12 +197,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shot: {fileID: 1524903870164818, guid: d530530940183ab43a5689b7e0e98983, type: 2}
+  laser: {fileID: 0}
   shotSpawn: {fileID: 4309246696634004}
-  shotSpawn1: {fileID: 0}
+  shotSpawn1: {fileID: 4309246696634004}
   shotSpawn2: {fileID: 0}
   shotSpawn3: {fileID: 0}
   shotSpawn4: {fileID: 0}
+  shotSpawn5: {fileID: 0}
+  shotSpawn6: {fileID: 0}
+  shotSpawn7: {fileID: 0}
+  shotSpawn8: {fileID: 0}
+  shotSpawn9: {fileID: 0}
+  laserSpawn: {fileID: 0}
   fireRate: 1.5
+  fireLaserRate: 0
   delay: 0.5
 --- !u!114 &114633768761302680
 MonoBehaviour:

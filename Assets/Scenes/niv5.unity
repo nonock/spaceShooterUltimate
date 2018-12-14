@@ -1434,6 +1434,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hazards:
   - {fileID: 1401101780390268, guid: 545624bdea4140f44baca77c26658943, type: 2}
+  star: {fileID: 0}
   spawnValues: {x: 6, y: 0, z: 16}
   startWait: 1
   waveWait: 2
@@ -1481,6 +1482,11 @@ Prefab:
     - target: {fileID: 4049627471719640, guid: cf3e3c6751192f24297b565b02439d16, type: 2}
       propertyPath: m_RootOrder
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 114480136870048846, guid: cf3e3c6751192f24297b565b02439d16,
+        type: 2}
+      propertyPath: fireRate
+      value: 0.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cf3e3c6751192f24297b565b02439d16, type: 2}

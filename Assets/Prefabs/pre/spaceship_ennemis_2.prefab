@@ -52,11 +52,13 @@ GameObject:
   - component: {fileID: 212249453300514004}
   - component: {fileID: 114292334234255926}
   - component: {fileID: 114005945261176234}
-  - component: {fileID: 114760262740592294}
   - component: {fileID: 82987861958103544}
+  - component: {fileID: 54662461926860788}
+  - component: {fileID: 135857342871954178}
+  - component: {fileID: 114894886917297322}
   m_Layer: 0
   m_Name: spaceship_ennemis_2
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -102,6 +104,21 @@ Transform:
   m_Father: {fileID: 4421114373344574}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &54662461926860788
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1736333165158842}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!82 &82987861958103544
 AudioSource:
   m_ObjectHideFlags: 1
@@ -113,7 +130,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 1be4472894949437694aead55c6da60f, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.035
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -209,12 +226,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shot: {fileID: 1524903870164818, guid: d530530940183ab43a5689b7e0e98983, type: 2}
+  laser: {fileID: 0}
   shotSpawn: {fileID: 4098925095222798}
   shotSpawn1: {fileID: 4421813322909660}
   shotSpawn2: {fileID: 0}
   shotSpawn3: {fileID: 0}
   shotSpawn4: {fileID: 0}
+  shotSpawn5: {fileID: 0}
+  shotSpawn6: {fileID: 0}
+  shotSpawn7: {fileID: 0}
+  shotSpawn8: {fileID: 0}
+  shotSpawn9: {fileID: 0}
+  laserSpawn: {fileID: 0}
   fireRate: 1.5
+  fireLaserRate: 0
   delay: 0.5
 --- !u!114 &114292334234255926
 MonoBehaviour:
@@ -228,7 +253,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: -5
---- !u!114 &114760262740592294
+--- !u!114 &114894886917297322
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -236,12 +261,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 1736333165158842}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8846417901f4942d2a5fa9e32ce69d45, type: 3}
+  m_Script: {fileID: 11500000, guid: 3680b5701acaec34a8cc3537d2ed185a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   explosion: {fileID: 100012, guid: 160925a6fe2664f2a978566b819f0af0, type: 2}
-  playerExplosion: {fileID: 100008, guid: 3455fe69f7ddc4604b95bf9b0a1e88d7, type: 2}
-  scoreValue: 20
+  vie: 10
+--- !u!135 &135857342871954178
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1736333165158842}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.32500014
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!212 &212249453300514004
 SpriteRenderer:
   m_ObjectHideFlags: 1

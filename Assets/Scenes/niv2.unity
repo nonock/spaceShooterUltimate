@@ -196,7 +196,7 @@ Prefab:
     - target: {fileID: 114310100905314366, guid: 4e9071e5ee370694ab9d61f73fea23e6,
         type: 2}
       propertyPath: fireRate
-      value: 0.5
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 1705381823495706, guid: 4e9071e5ee370694ab9d61f73fea23e6, type: 2}
       propertyPath: m_TagString
@@ -1461,9 +1461,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hazards:
-  - {fileID: 1053325475328922, guid: e0ccd2b8a0c45724184fdb41848f5ef0, type: 2}
-  - {fileID: 1053325475328922, guid: e0ccd2b8a0c45724184fdb41848f5ef0, type: 2}
-  - {fileID: 1053325475328922, guid: e0ccd2b8a0c45724184fdb41848f5ef0, type: 2}
+  - {fileID: 1732094677715982, guid: e0ccd2b8a0c45724184fdb41848f5ef0, type: 2}
+  - {fileID: 1971884627394898, guid: 4c274d47fd9b89a44864fff74a5f19df, type: 2}
+  - {fileID: 1736333165158842, guid: 905c0a2456a8af2459cd9a228c231eb5, type: 2}
+  - {fileID: 1466080039804382, guid: b993735d90d25ec4483152c3dc5e3501, type: 2}
+  - {fileID: 1971884627394898, guid: 4c274d47fd9b89a44864fff74a5f19df, type: 2}
+  star: {fileID: 1779647232713922, guid: 8f2528c290b1a2e4181e6b092d63fae8, type: 2}
   spawnValues: {x: 6, y: 0, z: 16}
   startWait: 1
   waveWait: 2

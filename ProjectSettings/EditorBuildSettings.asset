@@ -32,4 +32,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/niv4.unity
     guid: da38cc79e44035f42b2bd25019de8e9d
+  - enabled: 1
+    path: Assets/Scenes/loadlvl5.unity
+    guid: 4eab2fcca7184144782021f91df8ebf8
+  - enabled: 1
+    path: Assets/Scenes/niv5.unity
+    guid: 7e094e4296c3e7c4a96cc5a144d1a4cf
+  - enabled: 1
+    path: Assets/Scenes/loadvictory.unity
+    guid: b5df72901a31f5849ba795198a88dda0
+  - enabled: 1
+    path: Assets/Scenes/victory.unity
+    guid: 05d18b43fae6a90479263ef7b1addb22
   m_configObjects: {}

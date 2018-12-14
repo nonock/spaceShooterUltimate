@@ -23,26 +23,28 @@ public class DestroyByContact : MonoBehaviour
 		}
 	}
 
-	void OnTriggerEnter (Collider other)
-	{
+    void OnTriggerEnter(Collider other)
+    {
         //m_Scene = SceneManager.GetActiveScene();
         if (other.CompareTag("Boundary") || other.CompareTag("Enemy"))
         {
             return;
         }
-
-        if (explosion != null)
+        else
         {
-            Instantiate(explosion, transform.position, transform.rotation);
-        }
+            if (explosion != null)
+            {
+                Instantiate(explosion, transform.position, transform.rotation);
+            }
 
-        if (other.tag == "Player")
-        {
-            Instantiate(playerExplosion, other.transform.position, other.transform.rotation);
-            gameController.GameOver();
+            if (other.tag == "Player")
+            {
+                Instantiate(playerExplosion, other.transform.position, other.transform.rotation);
+                gameController.GameOver();
+            }
+
+            Destroy(other.gameObject);
+            Destroy(gameObject);
         }
-        
-        Destroy(other.gameObject);
-        Destroy(gameObject);
     }
 }

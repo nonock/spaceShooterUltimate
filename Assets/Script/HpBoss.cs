@@ -33,13 +33,29 @@ public class HpBoss : MonoBehaviour
 
         vie--;
 
-        if (vie == 0)
+        m_Scene = SceneManager.GetActiveScene();
+        if(m_Scene.name !="niv5")
         {
-            Instantiate(explosion, transform.position, transform.rotation);
-            Destroy(other.gameObject);
-            Destroy(gameObject);
-        }
+            if (vie == 0)
+            {
+                Instantiate(explosion, transform.position, transform.rotation);
+                Destroy(other.gameObject);
+                Destroy(gameObject);
+            }
 
-        Destroy(other.gameObject);
+            Destroy(other.gameObject);
+        }
+        else
+        {
+            if (vie == 0)
+            {
+                Instantiate(explosion, transform.position, transform.rotation);
+                Destroy(other.gameObject);
+                Destroy(gameObject);
+                gameController.Victory();
+            }
+
+            Destroy(other.gameObject);
+        }
     }
 }

@@ -31,7 +31,7 @@ public class PlayerController : MonoBehaviour
         m_Scene = SceneManager.GetActiveScene();
         if(m_Scene.name == "niv2")
         {
-            if (Input.GetKeyDown(KeyCode.Space) && Time.time > nextFire)
+            if (Input.GetButton("Fire1") && Time.time > nextFire)
             {
                 nextFire = Time.time + fireRate;
                 Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
@@ -40,7 +40,7 @@ public class PlayerController : MonoBehaviour
         }
         if(m_Scene.name == "niv3")
         {
-            if (Input.GetKeyDown(KeyCode.Space) && Time.time > nextFire)
+            if (Input.GetButton("Fire1") && Time.time > nextFire)
             {
                 nextFire = Time.time + fireRate;
                 Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
@@ -50,7 +50,7 @@ public class PlayerController : MonoBehaviour
         }
         if (m_Scene.name == "niv4")
         {
-            if (Input.GetKeyDown(KeyCode.Space) && Time.time > nextFire)
+            if (Input.GetButton("Fire1") && Time.time > nextFire)
             {
                 nextFire = Time.time + fireRate;
                 Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
@@ -61,7 +61,7 @@ public class PlayerController : MonoBehaviour
         }
         if (m_Scene.name == "niv5")
         {
-            if(Input.GetKeyDown(KeyCode.Space) && Time.time > nextFire)
+            if(Input.GetButton("Fire1") && Time.time > nextFire)
             {
                 nextFire = Time.time + fireRate;
                 Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
@@ -87,5 +87,12 @@ public class PlayerController : MonoBehaviour
 			0.0f, 
 			Mathf.Clamp (GetComponent<Rigidbody>().position.z, boundary.zMin, boundary.zMax)
 		);
+    }
+
+    public void UpRate()
+    {
+        fireRate = fireRate - 0.01f;
+
+        //print(fireRate);
     }
 }

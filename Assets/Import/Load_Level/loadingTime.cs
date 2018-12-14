@@ -28,7 +28,7 @@ float factor  = 0.0001F;
 			if(alpha >= 0)
 				alpha-= 0.07F;
 		}
-			print (alpha);
+			//print (alpha);
 			StartCoroutine(transition());
 
 
