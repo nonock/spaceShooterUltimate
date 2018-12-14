@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 public class HpBoss : MonoBehaviour
 {
     public GameObject explosion;
+    public GameObject playerExplosion;
     private GameController gameController;
     Scene m_Scene;
 
@@ -39,8 +40,15 @@ public class HpBoss : MonoBehaviour
             if (vie == 0)
             {
                 Instantiate(explosion, transform.position, transform.rotation);
-                Destroy(other.gameObject);
                 Destroy(gameObject);
+            }
+
+            if (other.tag == "Player")
+            {
+                Instantiate(playerExplosion, other.transform.position, other.transform.rotation);
+                Instantiate(explosion, transform.position, transform.rotation);
+                Destroy(gameObject);
+                gameController.GameOver();
             }
 
             Destroy(other.gameObject);

@@ -48,7 +48,7 @@ public class GameController : MonoBehaviour
         wave = 0;
         waveUpdate = 0;
         maxScore = 1000;
-        hazardCount = 20;
+        hazardCount = 10;
         spawnWait = 0.5f;
 
         m_Scene = SceneManager.GetActiveScene();
@@ -113,7 +113,7 @@ public class GameController : MonoBehaviour
     void SpawnSpecialWave1()
     {
         GameObject hazard = hazards[0];
-        for (float i = -spawnValues.x; i < spawnValues.x + 1; i++)
+        for (float i = -spawnValues.x; i < spawnValues.x + 1; i = i+2)
         {
             Vector3 spawnPosition = new Vector3(i, spawnValues.y, spawnValues.z);
 
@@ -133,7 +133,7 @@ public class GameController : MonoBehaviour
 
         Quaternion spawnRotation = Quaternion.Euler(rotationVector);
 
-        for (float a = 0; a < spawnValues.x + 1; a++)
+        for (float a = 0; a < spawnValues.x + 1; a = a + 2)
         {
             Vector3 spawnPosition2 = new Vector3(0 + a, spawnValues.y, spawnValues.z + a);
             Vector3 spawnPosition3 = new Vector3(0 - a, spawnValues.y, spawnValues.z + a);
@@ -151,7 +151,7 @@ public class GameController : MonoBehaviour
 
         Quaternion spawnRotation = Quaternion.Euler(rotationVector);
 
-        for (float a = 0; a < (spawnValues.x / 2) + 1; a++)
+        for (float a = 0; a < (spawnValues.x / 2) + 1; a = a + 2)
         {
             Vector3 spawnPosition2 = new Vector3(0 + a, spawnValues.y, spawnValues.z + a);
             Vector3 spawnPosition3 = new Vector3(0 - a, spawnValues.y, spawnValues.z + a);
