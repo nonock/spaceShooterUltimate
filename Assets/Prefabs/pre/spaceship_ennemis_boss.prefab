@@ -501,7 +501,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explosion: {fileID: 100012, guid: 160925a6fe2664f2a978566b819f0af0, type: 2}
-  vie: 500
+  playerExplosion: {fileID: 0}
+  vie: 1000
 --- !u!114 &114892500329989004
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -526,7 +527,7 @@ MonoBehaviour:
   shotSpawn8: {fileID: 4077679666848906}
   shotSpawn9: {fileID: 4711198939975298}
   laserSpawn: {fileID: 4365014401982726}
-  fireRate: 1.5
+  fireRate: 20
   fireLaserRate: 5
   delay: 0.5
 --- !u!135 &135752040024102450

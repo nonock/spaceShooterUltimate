@@ -38,7 +38,7 @@ public class WeaponController : MonoBehaviour
 
         if (m_Scene.name == "niv5")
         {
-            fireRate = 0.5f;
+            fireRate = 0.2f;
 
             InvokeRepeating("FireBoss", delay, fireRate);
 

@@ -23,7 +23,7 @@ public class ui_script : MonoBehaviour {
 	IEnumerator runGame()
     {
 		yield return new WaitForSeconds(2); 
-		SceneManager.LoadScene("loadlvl1");
+		SceneManager.LoadScene("explicationMonde");
 	 }
 	public void QuitGame() 
 	{

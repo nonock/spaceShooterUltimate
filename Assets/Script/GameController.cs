@@ -43,6 +43,7 @@ public class GameController : MonoBehaviour
         restartText.text = "";
         gameOverText.text = "";
         victoryText.text = "";
+        scoreText.text = "";
         score = 0;
         waves = 0;
         wave = 0;
@@ -56,6 +57,26 @@ public class GameController : MonoBehaviour
         if (m_Scene.name == "niv5")
         {
             SpawnBoss();
+        }
+        else if(m_Scene.name == "explicationMonde")
+        {
+            StartCoroutine(Prez());
+        }
+        else if(m_Scene.name == "planet1toespace")
+        {
+            StartCoroutine(LaserPerdu());
+        }
+        else if (m_Scene.name == "planet2toespace")
+        {
+            StartCoroutine(MitrailleusePerdu());
+        }
+        else if (m_Scene.name == "planet3toespace")
+        {
+            StartCoroutine(GrenadePerdu());
+        }
+        else if (m_Scene.name == "planet4toespace")
+        {
+            StartCoroutine(LanceFlammePerdu());
         }
         else
         {
@@ -167,6 +188,103 @@ public class GameController : MonoBehaviour
             Instantiate(hazard, spawnPosition2, spawnRotation);
             Instantiate(hazard, spawnPosition3, spawnRotation);
         }
+    }
+
+    IEnumerator LaserPerdu()
+    {
+        level2load = "niv2";
+
+        yield return new WaitForSeconds(2);
+
+        victoryText.text = "Vous venez de perdre votre laser";
+
+        yield return new WaitForSeconds(2);
+
+        victoryText.text = "En échange votre vaisseau peut tirer des lasers";
+
+        yield return new WaitForSeconds(3);
+
+        StartCoroutine(transition());
+    }
+
+    IEnumerator MitrailleusePerdu()
+    {
+        level2load = "niv3";
+
+        yield return new WaitForSeconds(2);
+
+        victoryText.text = "Vous venez de perdre votre mitrailleuse";
+
+        yield return new WaitForSeconds(2);
+
+        victoryText.text = "En échange votre vaisseau peut tirer plus de lasers";
+
+        yield return new WaitForSeconds(3);
+
+        StartCoroutine(transition());
+    }
+
+    IEnumerator GrenadePerdu()
+    {
+        level2load = "niv4";
+
+        yield return new WaitForSeconds(2);
+
+        victoryText.text = "Vous venez de perdre votre lance grenade";
+
+        yield return new WaitForSeconds(2);
+
+        victoryText.text = "En échange votre vaisseau peut tirer plus de lasers";
+
+        yield return new WaitForSeconds(3);
+
+        StartCoroutine(transition());
+    }
+
+    IEnumerator LanceFlammePerdu()
+    {
+        level2load = "niv5";
+
+        yield return new WaitForSeconds(2);
+
+        victoryText.text = "Vous venez de perdre votre lance-flamme";
+
+        yield return new WaitForSeconds(2);
+
+        victoryText.text = "En échange votre vaisseau peut tirer plus de lasers";
+
+        yield return new WaitForSeconds(3);
+
+        StartCoroutine(transition());
+    }
+
+    IEnumerator Prez()
+    {
+        yield return new WaitForSeconds(2);
+
+        victoryText.text = "Vous êtes un pilote perdu dans l'espace";
+
+        yield return new WaitForSeconds(3);
+
+        victoryText.text = "Votre vaisseau est endommagé";
+
+        yield return new WaitForSeconds(3);
+
+        victoryText.text = "Vous devez rejoindre la planète la plus prohe";
+
+        yield return new WaitForSeconds(3);
+
+        victoryText.text = "Pour réparer votre vaisseau et explorer d'autres";
+
+        yield return new WaitForSeconds(3);
+
+        victoryText.text = "Planètes pour pouvoir rentrer chez vous";
+
+        yield return new WaitForSeconds(3);
+
+        StartCoroutine(transition());
+
+
     }
 
     IEnumerator SpawnWaves()
