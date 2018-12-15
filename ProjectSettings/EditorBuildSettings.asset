@@ -47,4 +47,28 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/explicationMonde.unity
     guid: e0b2048e459d18540832cb93a5201645
+  - enabled: 1
+    path: Assets/Scenes/planet1toespace.unity
+    guid: 46d626b3081c18940822612887c1b9c0
+  - enabled: 1
+    path: Assets/Scenes/planet2toespace.unity
+    guid: d38c4bfcb601a3344ae4b2ab01cb4b4e
+  - enabled: 1
+    path: Assets/Scenes/planet3toespace.unity
+    guid: 658aaeb25cf72f44f8c001fa235acd1d
+  - enabled: 1
+    path: Assets/Scenes/planet4toespace.unity
+    guid: 38886f958e103ec4e947e723e34dbda3
+  - enabled: 1
+    path: Assets/Scenes/loallvl1planet.unity
+    guid: 12fe60dc1606fd146b06f9ab751f9e2e
+  - enabled: 1
+    path: Assets/Scenes/loallvl2planet.unity
+    guid: 09926ef0713971448886b06d533daa69
+  - enabled: 1
+    path: Assets/Scenes/loallvl3planet.unity
+    guid: 6478251798882dd48ade7977040640e0
+  - enabled: 1
+    path: Assets/Scenes/loallvl4planet.unity
+    guid: 263a5ceb60ad9d84bb1efffefcfa8eba
   m_configObjects: {}
