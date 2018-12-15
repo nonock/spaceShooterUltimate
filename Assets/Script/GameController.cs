@@ -17,6 +17,8 @@ public class GameController : MonoBehaviour
     public Text restartText;
     public Text gameOverText;
     public Text victoryText;
+
+    //Ici
     public string level2load;
 
     private bool gameOver;
@@ -30,6 +32,7 @@ public class GameController : MonoBehaviour
     private int waveUpdate;
     Scene m_Scene;
 
+    //Ici
     public Texture2D fadeTexture;
     private float alpha = 1;
     bool tr = false;
@@ -89,6 +92,7 @@ public class GameController : MonoBehaviour
 
     void Update()
     {
+        //Ici
         if (tr)
         {
             alpha += 0.07F;
@@ -415,10 +419,11 @@ public class GameController : MonoBehaviour
     {
         victoryText.text = "Victory !!!";
         victory = true;
+        //Ici
         StartCoroutine(transition());
 
     }
-
+    //Ici
     IEnumerator transition()
     {
         yield return new WaitForSeconds(2);
@@ -426,7 +431,7 @@ public class GameController : MonoBehaviour
         StartCoroutine(loadLevel());
 
     }
-
+    //Ici
     IEnumerator loadLevel()
     {
         yield return new WaitForSeconds(1);
@@ -452,7 +457,7 @@ public class GameController : MonoBehaviour
         scoreText.text = "Wave: " + wave;
     }
 
-
+    //Ici
     void OnGUI()
     {
         GUI.color = new Color(1, 1, 1, alpha);
